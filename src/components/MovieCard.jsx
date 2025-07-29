@@ -15,7 +15,7 @@ function MovieCard({ vote_average, poster_path, id }) {
     useEffect(() => {
         const fetchVideoKey = async () => {
             const videos = await fetchMovieVideos(id)
-            setVideoKey(videos[0].key)
+            setVideoKey(videos[0]?.key || null)
         }
         fetchVideoKey();
     }, [id])
@@ -26,7 +26,7 @@ function MovieCard({ vote_average, poster_path, id }) {
 
     return (
         <div className="relative w-[200px] rounded-2xl overflow-hidden
-             bg-neutral-900 shadow-lg hover:scale-105 transition-transform will-change-transform duration-300 pointer">
+             bg-neutral-900 shadow-lg hover:scale-105 transition-transform will-change-transform duration-300 cursor-pointer">
             {isOpen && <Modal onClose={() => {
                 setIsOpen(false)
             }}>
@@ -35,10 +35,10 @@ function MovieCard({ vote_average, poster_path, id }) {
                     className="rounded-2xl"
                     src={`https://www.youtube.com/embed/${videoKey}?amp;controls=0`}
                     title="YouTube video player"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen />
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen />
             </Modal>}
 
             <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`}

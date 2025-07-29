@@ -1,20 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchMovieDetails } from "./api/tmdbApi";
+import { fetchMovieDetails } from "../api/tmdbApi";
 
 export default function MovieDetails() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const loadMovie = async () => {
-            const movieData = await fetchMovieDetails(id)
-            setMovie(movieData)
+            try {
+                setLoading(true)
+                setError(null)
+                const movieData = await fetchMovieDetails(id)
+                if (!movieData) {
+                    setError('Movie not found')
+                } else {
+                    setMovie(movieData)
+                }
+            } catch (err) {
+                setError('Failed to load movie details')
+                console.error('Error loading movie details:', err)
+            } finally {
+                setLoading(false)
+            }
         }
         loadMovie()
     }, [id])
 
-    if (!movie) {
+    if (loading) {
         return (
             <div className="min-h-screen bg-black flex items-center justify-center">
                 <div className="text-white text-2xl font-bold">Loading...</div>
@@ -22,24 +37,40 @@ export default function MovieDetails() {
         )
     }
 
+    if (error) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <div className="text-red-500 text-2xl font-bold">{error}</div>
+            </div>
+        )
+    }
+
+    if (!movie) {
+        return (
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <div className="text-white text-2xl font-bold">Movie not found</div>
+            </div>
+        )
+    }
+
     return (
-        <div className="min-h-screen min-w-screen bg-black relative">
+        <div className="bg-black relative min-h-screen">
             <div className="absolute inset-0 z-0">
                 <img
                     src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
                     alt={movie?.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
             </div>
 
-            <Link
+            {/* <Link
                 to="/"
-                className="absolute top-4 left-4 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-fullbackdrop-blur-sm border border-white/20 hover:border-white/40"
+                className="absolute top-4 left-4 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-xl backdrop-blur-sm border border-white/20 hover:border-white/40"
             >
                 <span className="text-2xl">←</span>
-            </Link>
+            </Link> */}
 
             <div className="relative z-10 min-h-screen flex items-center justify-center">
                 <div className="container mx-auto px-4 pb-20">

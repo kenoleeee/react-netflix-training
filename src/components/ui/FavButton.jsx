@@ -1,6 +1,6 @@
 import { useState, memo } from "react";
 
-function FavButton({ }) {
+function FavButton() {
     const [isFav, setIsFav] = useState(false);
 
     return (
