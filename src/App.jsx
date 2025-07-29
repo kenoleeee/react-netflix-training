@@ -2,7 +2,8 @@ import MovieCard from './components/MovieCard'
 import { useState, useEffect } from 'react'
 import { useDebounce } from './hooks/useDebounce'
 import { useTheme } from './hooks/useTheme'
-import { fetchPopularMovies } from './api/tmdbApi'
+import { fetchPopularMovies, fetchSearchMovies } from './api/tmdbApi'
+import { Link } from 'react-router-dom'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -18,15 +19,29 @@ function App() {
     loadMovies()
   }, [])
 
+  useEffect(() => {
+    const loadSearchMovies = async () => {
+      const searchMovies = await fetchSearchMovies(debouncedSearch)
+      setMovies(searchMovies)
+    }
+    loadSearchMovies()
+  }, [debouncedSearch])
+
   return (
     <>
       <div className="min-h-screen min-w-screen bg-white dark:bg-black text-black dark:text-white px-6 py-5">
         <header className="mb-10 flex items-center justify-between">
-          <img src="/netflix_logo.jpg"
-            alt="netflix logo"
-            className="h-8 w-auto" />
+          <Link to="/">
+            <img src="/netflix_logo.jpg"
+              alt="netflix logo"
+              className="h-8 w-auto" />
+          </Link>
           <div className="">
-            <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search" className="w-1/2 p-2 rounded-md" />
+            <input type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search"
+              className="w-1/2 p-2 rounded-md" />
             <button
               onClick={toggleTheme}
               className="text-sm px-3 py-1 rounded border border-white/20 dark:border-white/10 hover:bg-white
