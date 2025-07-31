@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDebounce } from '../hooks/useDebounce'
 import { fetchSearchMovies } from '../api/tmdbApi'
-import MovieCard from './MovieCard'
+import MovieCard from '../components/MovieCard'
 
 export default function SearchResults({ searchQuery }) {
     const [movies, setMovies] = useState([])
@@ -63,6 +63,7 @@ export default function SearchResults({ searchQuery }) {
                         poster_path={movie.poster_path}
                         vote_average={movie.vote_average}
                         id={movie.id}
+                        title={movie.title}
                     />
                 ))
             ) : (

@@ -14,8 +14,8 @@ export default function Modal({ children, onClose }) {
         }
     }, [onClose]);
     return createPortal(
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
-            <div className="relative w-[90%] max-w-xl bg-neutral-900 text-white p-6 rounded-2xl
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="relative bg-neutral-900 text-white rounded-2xl
             shadow-lg animate-fade-in">
                 <button onClick={onClose}
                     aria-label="Close modal"

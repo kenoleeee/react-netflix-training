@@ -1,6 +1,7 @@
-import PopularMovies from './components/PopularMovies'
-import SearchResults from './components/SearchResults'
+import PopularMovies from './pages/PopularMovies'
+import SearchResults from './pages/SearchResults'
 import { useSearch } from './context/SearchContext'
+
 
 function App() {
   const { search } = useSearch()
