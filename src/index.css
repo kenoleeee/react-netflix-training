@@ -108,3 +108,61 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Swiper  */
+.swiper-slide {
+  padding: 0 6px;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide>* {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide .hover\:scale-105 {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover .hover\:scale-105 {
+  transform: scale(1.05) !important;
+}
+
+
+.swiper {
+  overflow: visible !important;
+}
+
+.swiper-wrapper {
+  align-items: stretch;
+}
+
+
+.swiper-container {
+  padding: 0 20px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f01a1a !important;
+  background: rgba(0, 0, 0, 0.5);
+
+  border-radius: 100%;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px !important;
+}

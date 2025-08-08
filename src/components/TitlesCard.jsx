@@ -1,9 +1,10 @@
 import FavButton from "./ui/FavButton";
 import { memo } from "react";
 import { Link } from 'react-router-dom';
+import NoPoster from "./NoPoster";
 
 
-function MovieCard({ vote_average, poster_path, id, title }) {
+function TitlesCard({ vote_average, poster_path, id, title, media_type }) {
 
     if (!poster_path) {
         return (
@@ -13,9 +14,8 @@ function MovieCard({ vote_average, poster_path, id, title }) {
 
     return (
 
-        <Link to={`/movie/${id}`}>
-            <div className="relative w-[200px] rounded-2xl overflow-hidden
-                 bg-neutral-900 shadow-lg hover:scale-105 transition-transform will-change-transform duration-300 cursor-pointer">
+        <Link to={`/${media_type}/${id}`}>
+            <div className="relative w-[200px] rounded-2xl overflow-hidden bg-neutral-900 shadow-lg hover:scale-105 transition-transform will-change-transform duration-300 cursor-pointer ">
                 <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                     alt="movie poster"
                     className="w-full h-auto object-cover "
@@ -33,4 +33,4 @@ function MovieCard({ vote_average, poster_path, id, title }) {
     )
 }
 
-export default memo(MovieCard);
+export default memo(TitlesCard);

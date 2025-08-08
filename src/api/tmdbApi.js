@@ -85,3 +85,79 @@ export const fetchSearchMovies = async (query) => {
         throw error
     }
 }
+export const fetchPopularTVShows = async () => {
+    if (!API_KEY || !BASE_URL) {
+        throw new Error('Missing API configuration')
+    }
+    try {
+        const response = await axios.get(`${BASE_URL}/tv/popular`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+                page: 1,
+            }
+        })
+        return response.data.results
+    } catch (error) {
+        console.error('Error fetching popular TV shows:', error)
+        throw error
+    }
+}
+
+export const fetchTVShowDetails = async (id) => {
+    if (!API_KEY || !BASE_URL) {
+        throw new Error('Missing API configuration')
+    }
+
+    try {
+        const response = await axios.get(`${BASE_URL}/tv/${id}`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+            }
+        })
+        return response.data
+    } catch (error) {
+        console.error('Error fetching TV show details:', error)
+        return null
+    }
+}
+
+export const fetchTVShowVideos = async (id) => {
+    if (!API_KEY || !BASE_URL) {
+        throw new Error('Missing API configuration')
+    }
+
+    try {
+        const response = await axios.get(`${BASE_URL}/tv/${id}/videos`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+            }
+        })
+        return response.data.results
+    } catch (error) {
+        console.error('Error fetching TV show videos:', error)
+        return []
+    }
+}
+
+export const fetchSearchTVShows = async (query) => {
+    if (!API_KEY || !BASE_URL) {
+        throw new Error('Missing API configuration')
+    }
+
+    try {
+        const response = await axios.get(`${BASE_URL}/search/tv`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+                query,
+            }
+        })
+        return response.data.results
+    } catch (error) {
+        console.error('Error fetching search TV shows:', error)
+        throw error
+    }
+}

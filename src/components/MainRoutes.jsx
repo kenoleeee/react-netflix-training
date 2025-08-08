@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import App from '../App'
-import MovieDetails from '../pages/MovieDetails'
+import TitlesDetails from '../pages/TitlesDetails'
 import Layout from '../layout/Layout'
 
 export default function MainRoutes() {
@@ -9,7 +9,8 @@ export default function MainRoutes() {
             <Routes>
                 <Route element={<Layout />}>
                     <Route path="/" element={<App />} />
-                    <Route path="/movie/:id" element={<MovieDetails />} />
+                    <Route path="/movie/:id" element={<TitlesDetails media_type="movie" />} />
+                    <Route path="/tv/:id" element={<TitlesDetails media_type="tv" />} />
                 </Route>
             </Routes>
 

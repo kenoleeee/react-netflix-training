@@ -1,4 +1,4 @@
-import PopularMovies from './pages/PopularMovies'
+import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import { useSearch } from './context/SearchContext'
 
@@ -11,7 +11,7 @@ function App() {
       {search.trim() ? (
         <SearchResults searchQuery={search} />
       ) : (
-        <PopularMovies />
+        <Home />
       )}
     </main>
   )
