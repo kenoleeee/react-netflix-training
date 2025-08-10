@@ -1,12 +1,113 @@
-# React + Vite
+# React Netflix Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Netflix-inspired web application built with React, featuring movie and TV show browsing, search functionality, and a responsive design.
+{BA5310C1-DABD-4E0C-9959-C1D894F277C2}.png
 
-Currently, two official plugins are available:
+## Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+{388EACD3-F1C8-4505-B082-D5D9838088EC}.png
+{820B63FE-03F8-4533-B8F7-4215F715F3AD}.png
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎬 **Movie & TV Show Browsing** - Browse popular movies and TV shows
+- 🔍 **Search Functionality** - Search for movies and TV shows with real-time results
+- 📱 **Responsive Design** - Optimized for desktop, tablet, and mobile devices
+- 🌙 **Dark Theme** - Netflix-style dark theme with theme toggle
+- 🎥 **Movie Details** - View detailed information about movies and TV shows
+- 📺 **Upcoming Releases** - Discover upcoming movies and TV shows
+- ⭐ **Favorites** - Save your favorite titles
+- 🎯 **Filter Navigation** - Switch between movies and TV shows
+
+## Tech Stack
+
+- **React 19** - Modern React with hooks
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Axios** - HTTP client for API requests
+- **React Router** - Client-side routing
+- **Swiper** - Touch slider component
+- **TMDB API** - Movie and TV show data
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd react-netflix
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Set up environment variables
+Create a `.env` file in the root directory and add your TMDB API credentials:
+
+```env
+VITE_API_KEY=your_tmdb_api_key_here
+VITE_BASE_URL=https://api.themoviedb.org/3
+```
+
+4. Start the development server
+
+```bash
+npm run dev
+```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Project Structure
+
+```
+src/
+├── api/           # API functions for TMDB
+├── components/    # Reusable UI components
+├── context/       # React context providers
+├── hooks/         # Custom React hooks
+├── layout/        # Layout components
+├── pages/         # Page components
+└── styles/        # CSS styles
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## API Integration
+
+This project uses The Movie Database (TMDB) API to fetch:
+
+- Popular movies and TV shows
+- Search results
+- Movie/TV show details
+- Video trailers
+- Upcoming releases
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is for educational purposes only.
+
+## Screenshots
+
+Built with ❤️ using React and TMDB API
