@@ -106,6 +106,4 @@ This project uses The Movie Database (TMDB) API to fetch:
 
 This project is for educational purposes only.
 
-## Screenshots
-
 Built with ❤️ using React and TMDB API
