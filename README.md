@@ -1,12 +1,14 @@
 # React Netflix Clone
 
 A modern Netflix-inspired web application built with React, featuring movie and TV show browsing, search functionality, and a responsive design.
-{BA5310C1-DABD-4E0C-9959-C1D894F277C2}.png
+<img width="169" height="48" alt="{BA5310C1-DABD-4E0C-9959-C1D894F277C2}" src="https://github.com/user-attachments/assets/be04bec8-141e-4480-ba87-8129f567859f" />
+
 
 ## Screenshots
 
-{388EACD3-F1C8-4505-B082-D5D9838088EC}.png
-{820B63FE-03F8-4533-B8F7-4215F715F3AD}.png
+<img width="1887" height="947" alt="image" src="https://github.com/user-attachments/assets/404159a7-4741-4f8b-a954-e123a4e95f8f" />
+
+<img width="478" height="899" alt="image" src="https://github.com/user-attachments/assets/8ff931fb-3fcd-4b56-acf8-7ee63c8cfec7" />
 
 ## Features
 
