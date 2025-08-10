@@ -96,7 +96,7 @@ export default function TitlesDetails({ media_type }) {
 
     return (
         <div className="bg-white dark:bg-black relative min-h-screen">
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 ">
                 <img
                     src={`https://image.tmdb.org/t/p/original${currentContent?.backdrop_path}`}
                     alt={currentContent?.title || currentContent?.name}

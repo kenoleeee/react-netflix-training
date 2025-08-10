@@ -7,7 +7,6 @@ if (!API_KEY || !BASE_URL) {
     console.error('Missing required environment variables: VITE_API_KEY or VITE_BASE_URL')
 }
 
-
 export const fetchPopularMovies = async () => {
     if (!API_KEY || !BASE_URL) {
         throw new Error('Missing API configuration')
@@ -158,6 +157,46 @@ export const fetchSearchTVShows = async (query) => {
         return response.data.results
     } catch (error) {
         console.error('Error fetching search TV shows:', error)
+        throw error
+    }
+}
+
+export const upcomingMovies = async () => {
+    if (!API_KEY || !BASE_URL) {
+        throw new Error('Missing API configuration')
+    }
+
+    try {
+        const response = await axios.get(`${BASE_URL}/movie/upcoming`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+                page: 1,
+            }
+        })
+        return response.data.results
+    } catch (error) {
+        console.error('Error fetching upcoming movies:', error)
+        throw error
+    }
+}
+
+export const upcomingTVShows = async () => {
+    if (!API_KEY || !BASE_URL) {
+        throw new Error('Missing API configuration')
+    }
+
+    try {
+        const response = await axios.get(`${BASE_URL}/tv/airing_today`, {
+            params: {
+                api_key: API_KEY,
+                language: 'en-US',
+                page: 1,
+            }
+        })
+        return response.data.results
+    } catch (error) {
+        console.error('Error fetching upcoming TV shows:', error)
         throw error
     }
 }

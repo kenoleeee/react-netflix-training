@@ -51,7 +51,7 @@ export default function PopularList() {
     }
 
     return (
-        <div className="w-full">
+        <div className="w-full px-4">
             <Swiper
                 navigation={true}
                 modules={[Navigation]}
